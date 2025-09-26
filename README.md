@@ -3,5 +3,8 @@
 ## 使用方法
 
 1. 從終端機進入專案
-2. 輸入 python3 -m http.server -p 8080
-3. 進入瀏覽器輸入 http://localhost:8080
+ ```
+   python3 -m http.server 8080
+ ```
+3. 進入瀏覽器輸入
+``` http://localhost:8080```
