@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>抽獎系統</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>抽獎系統</h1>
+  </header>
+
+  <main class="container">
+    <section class="setup-panel" id="setupPanel">
+      <div class="input-group">
+        <label for="namesInput">名單（每行一位，或以逗號/空白分隔）</label>
+        <textarea id="namesInput" placeholder="貼上參與者的姓名或代號"></textarea>
+      </div>
+
+      <div class="controls">
+        <button id="loadSampleBtn" class="secondary">載入測試名單</button>
+        <label class="file-input">
+          <input id="csvInput" type="file" accept=".csv">
+          從 CSV 匯入（學號 Student ID 欄位）
+        </label>
+        <button id="startBtn" class="primary" disabled>開始抽獎</button>
+      </div>
+
+      <p class="hint" id="minHint">至少需要 1 位才能開始（目前：<span id="currentCount">0</span>）</p>
+    </section>
+
+    <section class="lottery-panel hidden" id="lotteryPanel">
+      <div class="stats">
+        <div>總數：<span id="totalCount">0</span></div>
+        <div>剩餘：<span id="remainingCount">0</span></div>
+        <div>已抽：<span id="drawnCount">0</span></div>
+        <div>刪除：<span id="removedCount">0</span></div>
+      </div>
+
+      <div class="tumbler">
+        <div class="balls" id="balls"></div>
+        <div class="spotlight">
+          <div class="selected" id="selectedDisplay">準備中...</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="keepBtn" class="secondary" disabled>保留</button>
+        <button id="removeBtn" class="danger" disabled>刪除</button>
+      </div>
+
+      <div class="flow-controls">
+        <button id="drawNextBtn" class="primary" disabled>抽下一位</button>
+        <button id="resetBtn" class="ghost">重設</button>
+      </div>
+
+      <details class="advanced">
+        <summary>進階</summary>
+        <label class="checkbox"><input type="checkbox" id="allowRepeat"> 允許重複被抽到（保留不移除時）</label>
+      </details>
+    </section>
+  </main>
+
+  <footer class="app-footer">© 抽獎系統</footer>
+
+  <script src="./script.js"></script>
+  
+</body>
+</html>
+
+
